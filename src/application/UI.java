@@ -1,6 +1,7 @@
 package src.application;
 
 import src.boardgame.Board;
+import src.chess.ChessMatch;
 import src.chess.ChessPiece;
 import src.chess.ChessPosition;
 import src.chess.Color;
@@ -35,6 +36,13 @@ public class UI {
         System.out.flush();
     }
 
+    public static void printMatch(ChessMatch chessMatch){
+        printBoard(chessMatch.getPieces());
+        System.out.println();
+        System.out.println("Turn: "+ chessMatch.getTurn());
+        System.out.println("Waiting player: "+ chessMatch.getCurrentPlayer());
+    }
+
     public static ChessPosition readChessPosition(Scanner sc){
         try {
             String s = sc.nextLine();
@@ -61,6 +69,7 @@ public class UI {
         System.out.println("  a b c d e f g h");
         
     }
+    
     public static void printBoard(ChessPiece[][] pieces,
                                   boolean[][] possibleMoves){
 
